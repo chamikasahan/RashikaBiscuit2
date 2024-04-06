@@ -1,0 +1,680 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/orange2"
+    tools:context=".SnackActivity">
+
+
+    <LinearLayout
+        android:id="@+id/search_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="vertical">
+
+        <EditText
+            android:layout_gravity="end"
+            android:layout_width="@dimen/_220sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:gravity="center"
+            android:drawableEnd="@drawable/search_icon"
+            android:background="@drawable/search_bar_bg"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_4sdp"
+            android:hint="search Product here......"
+            />
+
+    </LinearLayout>
+
+<!--linear layout for nav buttons-->
+    <LinearLayout
+        android:id="@+id/horizontal_btn_bar"
+        android:layout_below="@+id/search_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/biscuits_nav"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:padding="@dimen/_5sdp"
+            android:background="@drawable/nav_btn_bg_false"
+            android:text="Biscuits"
+            android:textStyle="bold"
+            android:textSize="@dimen/_8sdp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/snacks_nav"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:padding="@dimen/_5sdp"
+            android:background="@drawable/nav_btn_bg_true"
+            android:text="Snacks"
+            android:textStyle="bold"
+            android:textSize="@dimen/_8sdp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/other_nav"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:padding="@dimen/_5sdp"
+            android:background="@drawable/nav_btn_bg_false"
+            android:text="Other Products"
+            android:textStyle="bold"
+            android:textSize="@dimen/_8sdp" />
+
+    </LinearLayout>
+<!--end of linear horizontal buttons-->
+    <ScrollView
+        android:layout_below="@+id/horizontal_btn_bar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <!--vertical linear for category one-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+
+                <!--        horizontal linear layout for category 01 product 01  -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/card_bg"
+                    android:clipToOutline="true"
+                    android:orientation="horizontal">
+
+                    <!--vertica linear for image -->
+                    <LinearLayout
+                        android:layout_width="@dimen/_120sdp"
+                        android:layout_height="@dimen/_150sdp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/adika_saraya_img"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="start"
+                            android:paddingTop="@dimen/_1sdp"
+                            android:paddingBottom="@dimen/_1sdp"
+                            android:layout_marginStart="0dp"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/adika_seraya" />
+
+
+                    </LinearLayout>
+                    <!--            end of image linear -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            android:id="@+id/snack_heading1"
+                            android:textAlignment="textStart"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_2sdp"
+                            android:textSize="@dimen/_18sdp"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:text="Adika saraya" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <RadioGroup
+                                    android:id="@+id/snack_radio_grp1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/_2sdp"
+                                    android:layout_marginBottom="@dimen/_1sdp"
+                                    android:textColor="@color/black"
+                                    android:textStyle="bold"
+                                    android:orientation="vertical">
+
+
+                                    <RadioButton
+                                        android:id="@+id/snack1_radioButton_120g"
+                                        android:layout_width="wrap_content"
+                                        android:layout_marginEnd="@dimen/_12sdp"
+                                        android:layout_height="wrap_content"
+                                        android:text="6 packs" />
+
+                                    <RadioButton
+                                        android:id="@+id/snack1_radioButton_250g"
+                                        android:layout_width="wrap_content"
+                                        android:layout_marginEnd="@dimen/_12sdp"
+                                        android:layout_height="wrap_content"
+                                        android:text="12 packs" />
+
+                                    <RadioButton
+                                        android:id="@+id/snack1_radioButton_500g"
+                                        android:layout_width="wrap_content"
+                                        android:layout_marginEnd="@dimen/_12sdp"
+                                        android:layout_height="wrap_content"
+                                        android:text="24 packs" />
+
+
+                                </RadioGroup>
+                                <!--end of radio group-->
+
+                            </LinearLayout>
+                            <!--                        end of radio button linear layout-->
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:gravity="end"
+                                android:layout_marginTop="@dimen/_15sdp"
+                                android:layout_marginStart="@dimen/_15sdp"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+
+                                <TextView
+                                    android:id="@+id/snack1_price"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/_5sdp"
+                                    android:text="Rs 620/-" />
+
+                                <LinearLayout
+                                    android:id="@+id/snack1_quantityLayout"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+
+                                    android:layout_marginTop="@dimen/_18sdp"
+                                    android:layout_marginEnd="@dimen/_10sdp"
+                                    android:layout_gravity="end"
+                                    >
+
+                                    <ImageView
+                                        android:id="@+id/minus_button"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:src="@drawable/minus_icon"
+                                        android:clickable="true"
+                                        android:focusable="true"
+                                        android:contentDescription="Minus Button"
+                                        android:padding="8dp"
+                                        android:onClick="decrementQuantity" />
+
+                                    <TextView
+                                        android:id="@+id/quantity_Text"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="1"
+                                        android:textSize="16sp"
+                                        android:padding="8dp" />
+
+                                    <ImageView
+                                        android:id="@+id/plus_button"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:clickable="true"
+                                        android:contentDescription="Plus Button"
+                                        android:focusable="true"
+                                        android:onClick="incrementQuantity"
+                                        android:padding="8dp"
+                                        android:src="@drawable/plus_con" />
+
+
+                                </LinearLayout>
+                                <!--                end of horizontal linear for quantity button-->
+
+                                <androidx.appcompat.widget.AppCompatButton
+                                    android:id="@+id/add_to_cart_btn"
+                                    android:layout_marginEnd="@dimen/_15sdp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="@dimen/_30sdp"
+                                    android:layout_marginTop="@dimen/_5sdp"
+                                    android:padding="@dimen/_5sdp"
+                                    android:background="@drawable/add_to_cart_btn"
+                                    android:text="Add to cart"
+                                    android:textStyle="bold"
+                                    android:textSize="@dimen/_8sdp" />
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+<!--horizontal layout new added-->
+
+                    </LinearLayout>
+                    <!--         end of vertical layout for heading-->
+
+                </LinearLayout>
+                <!-- end of horizontal linear-->
+
+                <!--***************************************************************************-->
+                <!--        horizontal linear layout for category 01 product 02  -->
+                <!--        horizontal linear layout for category 01 product 01  -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@drawable/card_bg"
+                    android:clipToOutline="true"
+                    android:orientation="horizontal">
+
+                    <!--vertica linear for image -->
+                    <LinearLayout
+                        android:layout_width="@dimen/_120sdp"
+                        android:layout_height="@dimen/_150sdp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/jumbo_img"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="start"
+                            android:paddingTop="@dimen/_1sdp"
+                            android:paddingBottom="@dimen/_1sdp"
+                            android:layout_marginStart="0dp"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/jumbo" />
+
+
+                    </LinearLayout>
+                    <!--            end of image linear -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            android:id="@+id/biscuit2_heading"
+                            android:textAlignment="textStart"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_2sdp"
+                            android:textSize="@dimen/_18sdp"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:text="Jumbo" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <RadioGroup
+                                    android:id="@+id/snack2_radio_grp1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/_2sdp"
+                                    android:layout_marginBottom="@dimen/_1sdp"
+                                    android:textColor="@color/black"
+                                    android:textStyle="bold"
+                                    android:orientation="vertical">
+
+
+                                    <RadioButton
+                                        android:id="@+id/snack2_radioButton_120g"
+                                        android:layout_width="wrap_content"
+                                        android:layout_marginEnd="@dimen/_12sdp"
+                                        android:layout_height="wrap_content"
+                                        android:text="6 packs" />
+
+                                    <RadioButton
+                                        android:id="@+id/snack2_radioButton_250g"
+                                        android:layout_width="wrap_content"
+                                        android:layout_marginEnd="@dimen/_12sdp"
+                                        android:layout_height="wrap_content"
+                                        android:text="12 packs" />
+
+                                    <RadioButton
+                                        android:id="@+id/biscuit2_radioButton_500g"
+                                        android:layout_width="wrap_content"
+                                        android:layout_marginEnd="@dimen/_12sdp"
+                                        android:layout_height="wrap_content"
+                                        android:text="24 packs" />
+
+
+                                </RadioGroup>
+                                <!--end of radio group-->
+
+                            </LinearLayout>
+                            <!--                        end of radio button linear layout-->
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:gravity="end"
+                                android:layout_marginTop="@dimen/_15sdp"
+                                android:layout_marginStart="@dimen/_15sdp"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+
+                                <TextView
+                                    android:id="@+id/snack2_price"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/_5sdp"
+                                    android:text="Rs 570/-" />
+
+                                <LinearLayout
+                                    android:id="@+id/snack2_quantityLayout"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+
+                                    android:layout_marginTop="@dimen/_18sdp"
+                                    android:layout_marginEnd="@dimen/_10sdp"
+                                    android:layout_gravity="end"
+                                    >
+
+                                    <ImageView
+                                        android:id="@+id/snnack2_minus_button"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:src="@drawable/minus_icon"
+                                        android:clickable="true"
+                                        android:focusable="true"
+                                        android:contentDescription="Minus Button"
+                                        android:padding="8dp"
+                                        android:onClick="decrementQuantity" />
+
+                                    <TextView
+                                        android:id="@+id/snack2_quantity_Text"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="1"
+                                        android:textSize="16sp"
+                                        android:padding="8dp" />
+
+                                    <ImageView
+                                        android:id="@+id/snack2_plus_button"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:clickable="true"
+                                        android:contentDescription="Plus Button"
+                                        android:focusable="true"
+                                        android:onClick="incrementQuantity"
+                                        android:padding="8dp"
+                                        android:src="@drawable/plus_con" />
+
+
+                                </LinearLayout>
+                                <!--                end of horizontal linear for quantity button-->
+
+                                <androidx.appcompat.widget.AppCompatButton
+                                    android:id="@+id/snack2_add_to_cart_btn"
+                                    android:layout_marginEnd="@dimen/_15sdp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="@dimen/_30sdp"
+                                    android:layout_marginTop="@dimen/_5sdp"
+                                    android:padding="@dimen/_5sdp"
+                                    android:background="@drawable/add_to_cart_btn"
+                                    android:text="Add to cart"
+                                    android:textStyle="bold"
+                                    android:textSize="@dimen/_8sdp" />
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+                        <!--horizontal layout new added-->
+
+                    </LinearLayout>
+                    <!--         end of vertical layout for heading-->
+
+                </LinearLayout>
+                <!-- end of horizontal linear-->
+
+                <!--***************************************************************************-->
+
+                <!--        horizontal linear layout for category 01 product 01  -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_75sdp"
+                    android:background="@drawable/card_bg"
+                    android:clipToOutline="true"
+                    android:orientation="horizontal">
+
+                    <!--vertica linear for image -->
+                    <LinearLayout
+                        android:layout_width="@dimen/_120sdp"
+                        android:layout_height="@dimen/_150sdp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/party_mixture_img"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="start"
+                            android:paddingTop="@dimen/_1sdp"
+                            android:paddingBottom="@dimen/_1sdp"
+                            android:layout_marginStart="0dp"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/party_time" />
+
+
+                    </LinearLayout>
+                    <!--            end of image linear -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            android:id="@+id/snack_heading3"
+                            android:textAlignment="textStart"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_2sdp"
+                            android:textSize="@dimen/_18sdp"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:text="party time Mixture" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <RadioGroup
+                                    android:id="@+id/snack3_radio_grp1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/_2sdp"
+                                    android:layout_marginBottom="@dimen/_1sdp"
+                                    android:textColor="@color/black"
+                                    android:textStyle="bold"
+                                    android:orientation="vertical">
+
+
+                                    <RadioButton
+                                        android:id="@+id/snack3_radioButton_120g"
+                                        android:layout_width="wrap_content"
+                                        android:layout_marginEnd="@dimen/_12sdp"
+                                        android:layout_height="wrap_content"
+                                        android:text="100g" />
+
+                                    <RadioButton
+                                        android:id="@+id/biscuit3_radioButton_250g"
+                                        android:layout_width="wrap_content"
+                                        android:layout_marginEnd="@dimen/_12sdp"
+                                        android:layout_height="wrap_content"
+                                        android:text="500g" />
+
+                                    <RadioButton
+                                        android:id="@+id/biscuit3_radioButton_500g"
+                                        android:layout_width="wrap_content"
+                                        android:layout_marginEnd="@dimen/_12sdp"
+                                        android:layout_height="wrap_content"
+                                        android:text="1Kg" />
+
+
+                                </RadioGroup>
+                                <!--end of radio group-->
+
+                            </LinearLayout>
+                            <!--                        end of radio button linear layout-->
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:gravity="end"
+                                android:layout_marginTop="@dimen/_15sdp"
+                                android:layout_marginStart="@dimen/_35sdp"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+
+                                <TextView
+                                    android:id="@+id/biscuit3_price"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/_5sdp"
+                                    android:text="Rs 1,100/-" />
+
+                                <LinearLayout
+                                    android:id="@+id/biscuit3_quantityLayout"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+
+                                    android:layout_marginTop="@dimen/_18sdp"
+                                    android:layout_marginEnd="@dimen/_10sdp"
+                                    android:layout_gravity="end"
+                                    >
+
+                                    <ImageView
+                                        android:id="@+id/biscuit3_minus_button"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:src="@drawable/minus_icon"
+                                        android:clickable="true"
+                                        android:focusable="true"
+                                        android:contentDescription="Minus Button"
+                                        android:padding="8dp"
+                                        android:onClick="decrementQuantity" />
+
+                                    <TextView
+                                        android:id="@+id/biscuit3_quantity_Text"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="1"
+                                        android:textSize="16sp"
+                                        android:padding="8dp" />
+
+                                    <ImageView
+                                        android:id="@+id/biscuit3_plus_button"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:clickable="true"
+                                        android:contentDescription="Plus Button"
+                                        android:focusable="true"
+                                        android:onClick="incrementQuantity"
+                                        android:padding="8dp"
+                                        android:src="@drawable/plus_con" />
+
+
+                                </LinearLayout>
+                                <!--                end of horizontal linear for quantity button-->
+
+                                <androidx.appcompat.widget.AppCompatButton
+                                    android:id="@+id/biscuit3_add_to_cart_btn"
+                                    android:layout_marginEnd="@dimen/_15sdp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="@dimen/_30sdp"
+                                    android:layout_marginTop="@dimen/_5sdp"
+                                    android:padding="@dimen/_5sdp"
+                                    android:background="@drawable/add_to_cart_btn"
+                                    android:text="Add to cart"
+                                    android:textStyle="bold"
+                                    android:textSize="@dimen/_8sdp" />
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+                        <!--horizontal layout new added-->
+
+                    </LinearLayout>
+                    <!--         end of vertical layout for heading-->
+
+                </LinearLayout>
+                <!-- end of horizontal linear-->
+
+                <!--***************************************************************************-->
+
+
+                <!--        ***************************************************-->
+
+                <!--***************************************************************************-->
+
+
+
+            </LinearLayout>
+            <!--    end of vertical linear layout-->
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="1dp"
+        app:menu="@menu/bottom_nav_menu" />
+</RelativeLayout>

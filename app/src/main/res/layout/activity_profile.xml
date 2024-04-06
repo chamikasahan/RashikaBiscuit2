@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:background="@color/gray"
+    android:layout_height="match_parent"
+
+    tools:context=".ProfileActivity">
+
+
+    <LinearLayout
+        android:id="@+id/profile"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_210sdp"
+        android:orientation="vertical"
+        android:background="@drawable/shape_bg">
+
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="191dp"
+            android:layout_gravity="center"
+            android:visibility="visible"
+            android:layout_marginBottom="@dimen/_1sdp"
+            android:src="@drawable/profile" />
+
+        <TextView
+            android:id="@+id/textView"
+
+            android:textAlignment="center"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="@dimen/_18sdp"
+            android:textColor="@color/black"
+            android:text="CodeX" />
+
+        <TextView
+            android:id="@+id/version"
+
+            android:textAlignment="textEnd"
+            android:layout_marginTop="@dimen/_1sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="@dimen/_12sdp"
+            android:textColor="@color/black"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:text="Version 1.1.0" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_below="@+id/profile"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_18sdp"
+            android:textStyle="bold"
+            android:textSize="@dimen/_18sdp"
+            android:textColor="@color/black"
+            android:background="@drawable/shape2_bg"
+            android:paddingStart="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:text="Profile Information" />
+
+        <LinearLayout
+            android:id="@+id/profile_section1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_13sdp"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/profile_name"
+                android:layout_width="@dimen/_92sdp"
+                android:layout_height="wrap_content"
+
+                android:textSize="@dimen/_14sdp"
+                android:textColor="@color/black"
+                android:text="Name: " />
+
+            <TextView
+                android:id="@+id/name_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:textSize="@dimen/_13sdp"
+                android:textColor="@color/black"
+                android:text="CodeX" />
+
+        </LinearLayout>
+        <!--end horizontal linear layout-->
+
+        <LinearLayout
+            android:id="@+id/profile_section2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_13sdp"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/profile_name4"
+                android:layout_width="@dimen/_92sdp"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_14sdp"
+                android:textColor="@color/black"
+                android:text="Phone: " />
+
+            <TextView
+                android:id="@+id/phone_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="@dimen/_13sdp"
+                android:textColor="@color/black"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:text="07x xxx xxx" />
+
+        </LinearLayout>
+        <!--end horizontal linear layout-->
+
+        <LinearLayout
+            android:id="@+id/profile_section3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_13sdp"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/profile_email"
+                android:layout_width="@dimen/_92sdp"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_13sdp"
+                android:textColor="@color/black"
+                android:text="Email: " />
+
+            <TextView
+                android:id="@+id/email_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="textStart"
+                android:layout_weight="1"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:textSize="@dimen/_13sdp"
+                android:textColor="@color/black"
+                android:text="example@gmail.com" />
+
+        </LinearLayout>
+        <!--end horizontal linear layout-->
+
+
+        <LinearLayout
+            android:id="@+id/profile_section4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_13sdp"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/profile_shop_name"
+                android:layout_width="@dimen/_92sdp"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_13sdp"
+                android:textColor="@color/black"
+                android:text="Shop Name: " />
+
+            <TextView
+                android:id="@+id/shop_name_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="textStart"
+                android:layout_weight="1"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:textSize="@dimen/_13sdp"
+                android:textColor="@color/black"
+                android:text="Freshy Stores" />
+
+        </LinearLayout>
+        <!--end horizontal linear layout-->
+
+        <LinearLayout
+            android:id="@+id/profile_section5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_13sdp"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/profile_shop_adrs"
+                android:layout_width="@dimen/_92sdp"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_13sdp"
+                android:textColor="@color/black"
+                android:text="Shop Address: " />
+
+            <TextView
+                android:id="@+id/shop_adrs_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="textStart"
+                android:layout_weight="1"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:textSize="@dimen/_13sdp"
+                android:textColor="@color/black"
+                android:text="54, kandy, Sri Lanka" />
+
+        </LinearLayout>
+        <!--end horizontal linear layout-->
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/edit_profile_btn"
+            android:layout_gravity="center"
+            android:layout_width="@dimen/_148sdp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape2_bg"
+            android:padding="@dimen/_6sdp"
+            android:text="Edit Profile"
+            android:textSize="@dimen/_17sdp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_40sdp"/>
+
+    </LinearLayout>
+
+
+    <!--    nav bar -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="1dp"
+        app:menu="@menu/bottom_nav_menu" />
+</RelativeLayout>

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:background="@color/gray"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".CardPaymentActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/fee_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:textSize="@dimen/_20sdp"
+            android:text="Rs 2,500/-" />
+
+        <TextView
+            android:id="@+id/pay_card_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginTop="@dimen/_26sdp"
+            android:textSize="@dimen/_20sdp"
+            android:text="Pay with Card" />
+
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_16sdp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_26sdp"
+            android:text="Email" />
+
+        <EditText
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:id="@+id/card_payment_email"
+            android:layout_width="@dimen/_253sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_1sdp"
+            android:background="@drawable/txt_back"
+            android:ems="10"
+            android:inputType="text"
+            android:padding="@dimen/_7sdp"
+            android:hint="example@gmail.com"
+            android:drawablePadding="@dimen/_9sdp"
+            android:drawableStart="@drawable/email_icon"
+            android:autofillHints="emailAddress"
+            android:textColor="@color/black"
+            android:textColorHint="#80000000"/>
+
+        <TextView
+            android:id="@+id/card_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_16sdp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_26sdp"
+            android:text="Card Information" />
+
+        <EditText
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:id="@+id/card_number"
+            android:layout_width="@dimen/_253sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_1sdp"
+            android:background="@drawable/txt_back"
+            android:ems="10"
+            android:inputType="text"
+            android:padding="@dimen/_7sdp"
+            android:hint="card number"
+            android:drawablePadding="@dimen/_9sdp"
+            android:drawableStart="@drawable/email_icon"
+            android:autofillHints="emailAddress"
+            android:textColor="@color/black"
+            android:textColorHint="#80000000"/>
+
+        <LinearLayout
+            android:layout_width="@dimen/_250sdp"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+
+                android:id="@+id/date_year"
+                android:layout_width="@dimen/_125sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_4sdp"
+                android:background="@drawable/txt_back"
+                android:ems="10"
+                android:inputType="date"
+                android:padding="@dimen/_7sdp"
+                android:hint="MM/YY"
+                android:drawablePadding="@dimen/_9sdp"
+
+                android:textColor="@color/black"
+                android:textColorHint="#80000000"/>
+
+
+            <EditText
+
+                android:id="@+id/cvc_number"
+                android:layout_width="@dimen/_121sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/txt_back"
+                android:ems="10"
+                android:inputType="text"
+                android:padding="@dimen/_7sdp"
+                android:hint="CVC"
+                android:drawablePadding="@dimen/_9sdp"
+
+                android:autofillHints="emailAddress"
+                android:textColor="@color/black"
+                android:textColorHint="#80000000"/>
+
+        </LinearLayout>
+
+        <Spinner
+            android:id="@+id/spinner_country"
+            android:layout_width="@dimen/_253sdp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:background="@drawable/txt_back"
+            android:padding="@dimen/_7sdp"/>
+
+        <EditText
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:id="@+id/zip_code"
+            android:layout_width="@dimen/_253sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:background="@drawable/txt_back"
+            android:ems="10"
+            android:inputType="text"
+            android:padding="@dimen/_7sdp"
+            android:hint="Zip code"
+            android:drawablePadding="@dimen/_9sdp"
+            android:autofillHints="emailAddress"
+            android:textColor="@color/black"
+            android:textColorHint="#80000000"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/confirm_payment"
+            android:layout_gravity="center"
+            android:layout_width="@dimen/_178sdp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape2_bg"
+            android:padding="@dimen/_6sdp"
+            android:text="Confirm Payment"
+            android:textSize="@dimen/_17sdp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_40sdp"/>
+
+
+    </LinearLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="1dp"
+        app:menu="@menu/bottom_nav_menu" />
+</RelativeLayout>

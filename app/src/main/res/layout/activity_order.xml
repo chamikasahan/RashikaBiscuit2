@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:background="@drawable/gradient_background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OrderActivity">
+
+
+    <LinearLayout
+        android:id="@+id/payment_layout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/payment_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+
+            android:textStyle="bold"
+            android:textSize="@dimen/_25sdp"
+            android:text="Payments" />
+
+        <TextView
+            android:id="@+id/added_item_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:textColor="@color/black"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:textSize="@dimen/_18sdp"
+            android:text="Added Items" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_180sdp">
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_220sdp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="@dimen/_250sdp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/field1"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_25sdp"
+                    android:padding="@dimen/_10sdp"
+                    android:background="@drawable/txt_back"
+                    android:text="Biscuit 01" />
+
+
+
+                <TextView
+                    android:layout_width="@dimen/_250sdp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/field2"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_25sdp"
+                    android:padding="@dimen/_10sdp"
+                    android:background="@drawable/txt_back"
+                    android:text="Biscuit 02" />
+
+                <TextView
+                    android:layout_width="@dimen/_250sdp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/field3"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_25sdp"
+                    android:padding="@dimen/_10sdp"
+                    android:background="@drawable/txt_back"
+                    android:text="Biscuit 03" />
+
+                <TextView
+                    android:layout_width="@dimen/_250sdp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/field4"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_25sdp"
+                    android:padding="@dimen/_10sdp"
+                    android:background="@drawable/txt_back"
+                    android:text="Biscuit 02" />
+
+                <TextView
+                    android:layout_width="@dimen/_250sdp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/field5"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_25sdp"
+                    android:padding="@dimen/_10sdp"
+                    android:background="@drawable/txt_back"
+                    android:text="Biscuit 02" />
+
+
+            </LinearLayout>
+        </ScrollView>
+
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_33sdp"
+            android:textAlignment="textEnd"
+            android:textSize="@dimen/_16sdp"
+            android:text="Total: Rs 2,500.00/-" />
+
+        <LinearLayout
+            android:id="@+id/payment_section"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/payment_opt_txt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_18sdp"
+                android:text="Payment Method" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_below="@+id/payment_layout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RadioGroup
+            android:layout_width="@dimen/_253sdp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_height="match_parent">
+
+            <RadioButton
+                android:id="@+id/payment_rdio_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:background="@drawable/txt_back"
+               android:paddingEnd="@dimen/_12sdp"
+                android:drawableEnd="@drawable/credit_card_icon"
+                android:text="Credit/Debit" />
+        </RadioGroup>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/confirm_pbtn"
+            android:layout_gravity="center"
+            android:layout_width="@dimen/_178sdp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape2_bg"
+            android:padding="@dimen/_6sdp"
+            android:text="Confirm Payment"
+            android:textSize="@dimen/_17sdp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_40sdp"/>
+    </LinearLayout>
+
+    <!--    nav bar -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="1dp"
+        app:menu="@menu/bottom_nav_menu" />
+</RelativeLayout>

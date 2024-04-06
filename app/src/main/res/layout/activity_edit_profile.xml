@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:background="@color/gray"
+    android:layout_height="match_parent"
+    tools:context=".EditProfileActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:padding="@dimen/_8sdp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="@dimen/_15sdp"
+            android:text="Edit Profile Information" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="121dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_28sdp"
+            android:layout_marginBottom="@dimen/_1sdp"
+            android:src="@drawable/profile" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/add_photo_btn"
+
+            android:layout_gravity="center"
+            android:layout_width="@dimen/_88sdp"
+            android:layout_height="@dimen/_18sdp"
+            android:drawableStart="@drawable/edit_photo"
+            android:background="@drawable/shape2_bg"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_marginBottom="@dimen/_15sdp"
+            android:text="update image"
+            android:textSize="@dimen/_9sdp"
+            android:layout_centerHorizontal="true"
+            />
+
+
+
+
+        <!--*******************************************************-->
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <EditText
+                    android:id="@+id/edit_profile_name"
+                    android:layout_width="@dimen/_250sdp"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:background="@drawable/txt_back"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:padding="@dimen/_7sdp"
+                    android:hint="John Doe"
+                    android:drawablePadding="@dimen/_9sdp"
+                    android:drawableStart="@drawable/person"
+                    android:autofillHints="Name"
+                    android:textColor="@color/black"
+                    android:textColorHint="#80000000"/>
+
+                <EditText
+                    android:id="@+id/edit_profile_phone"
+                    android:layout_width="@dimen/_250sdp"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:background="@drawable/txt_back"
+                    android:ems="10"
+                    android:inputType="phone"
+                    android:padding="@dimen/_7sdp"
+                    android:hint="07x xxx xxx"
+                    android:drawablePadding="@dimen/_9sdp"
+                    android:drawableStart="@drawable/baseline_phone_24"
+                    android:autofillHints="TelephoneNumber"
+                    android:textColor="@color/black"
+                    android:textColorHint="#80000000"/>
+
+                <EditText
+                    android:id="@+id/edit_profile_email"
+                    android:layout_width="@dimen/_250sdp"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:background="@drawable/txt_back"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:padding="@dimen/_7sdp"
+                    android:hint="example@gmail.com"
+                    android:drawablePadding="@dimen/_9sdp"
+                    android:drawableStart="@drawable/email_icon"
+                    android:autofillHints="emailAddress"
+                    android:textColor="@color/black"
+                    android:textColorHint="#80000000"/>
+
+                <EditText
+                    android:id="@+id/edit_profile_shop_name"
+                    android:layout_width="@dimen/_250sdp"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:background="@drawable/txt_back"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:padding="@dimen/_7sdp"
+                    android:hint="Shop Name"
+                    android:drawablePadding="@dimen/_9sdp"
+                    android:drawableStart="@drawable/store_icon"
+                    android:autofillHints="shopName"
+                    android:textColor="@color/black"
+                    android:textColorHint="#80000000"/>
+
+
+
+                <EditText
+                    android:id="@+id/edit_profile_address"
+                    android:layout_width="@dimen/_250sdp"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:background="@drawable/txt_back"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:padding="@dimen/_7sdp"
+                    android:hint="Shop Address"
+                    android:drawablePadding="@dimen/_9sdp"
+                    android:drawableStart="@drawable/location_icon"
+                    android:autofillHints="adddress"
+                    android:textColor="@color/black"
+                    android:textColorHint="#80000000"/>
+
+
+
+
+                <EditText
+                    android:id="@+id/edit_profile_password"
+                    android:layout_width="@dimen/_250sdp"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:background="@drawable/txt_back"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:padding="@dimen/_7sdp"
+                    android:hint="Password"
+                    android:drawablePadding="@dimen/_4sdp"
+                    android:drawableStart="@drawable/password"
+                    android:password="true"
+                    android:textColor="@color/black"
+                    android:textColorHint="#80000000"/>
+
+                <EditText
+                    android:id="@+id/edit_profie_confirm_pwd"
+                    android:layout_width="@dimen/_250sdp"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:background="@drawable/txt_back"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:padding="@dimen/_7sdp"
+                    android:hint="Confirm password"
+                    android:drawablePadding="@dimen/_4sdp"
+                    android:drawableStart="@drawable/password"
+                    android:password="true"
+                    android:textColor="@color/black"
+                    android:textColorHint="#80000000"/>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/confirm_btn"
+                    android:layout_gravity="center"
+                    android:layout_width="@dimen/_180sdp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape2_bg"
+                    android:layout_marginBottom="@dimen/_100sdp"
+                    android:text="Confirm"
+                    android:textSize="@dimen/_17sdp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/_20sdp"/>
+
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="1dp"
+        app:menu="@menu/bottom_nav_menu" />
+</RelativeLayout>
