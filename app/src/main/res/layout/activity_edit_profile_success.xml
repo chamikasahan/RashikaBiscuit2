@@ -45,7 +45,6 @@
             android:padding="@dimen/_6sdp"
             android:text="Back to home"
             android:textSize="@dimen/_17sdp"
-            android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_50sdp"/>
     </LinearLayout>
 </RelativeLayout>

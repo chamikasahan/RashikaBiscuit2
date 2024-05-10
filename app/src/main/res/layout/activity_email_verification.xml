@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_background"
+    android:background="@drawable/other_act_bg"
     tools:context=".EmailVerificationActivity">
 
     <TextView
@@ -32,7 +32,7 @@
         android:layout_marginEnd="@dimen/_20sdp"
         android:layout_marginBottom="@dimen/_20sdp"
         android:scrollbars="none"
-        android:background="@drawable/roundback">
+        android:background="@drawable/round">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -83,14 +83,14 @@
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/otp_button"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_30sdp"
+                    android:layout_height="@dimen/_40sdp"
                     android:background="@drawable/shape2_bg"
                     android:layout_marginStart="@dimen/_2sdp"
                     android:padding="@dimen/_4sdp"
                     android:text="Send Code"
-                    android:textSize="@dimen/_13sdp"
+                    android:textSize="@dimen/_11sdp"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="@dimen/_20sdp"/>
+                    android:layout_marginTop="@dimen/_15sdp"/>
 
             </LinearLayout>
 
