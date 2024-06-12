@@ -21,16 +21,23 @@
         android:padding="@dimen/_8sdp"
         android:src="@drawable/logo" />
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/test_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="test button"></androidx.appcompat.widget.AppCompatButton>
+
     <TextView
         android:id="@+id/login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/imageView20"
         android:layout_centerHorizontal="true"
+        android:fontFamily="@font/acme"
         android:gravity="center"
         android:text="LOGIN"
-        android:textSize="@dimen/_40sdp"
         android:textColor="#000000"
+        android:textSize="@dimen/_40sdp"
         android:textStyle="bold" />
 
     <ScrollView
@@ -68,32 +75,41 @@
                             android:layout_marginTop="@dimen/_20sdp"
                             android:autofillHints="emailAddress"
                             android:background="@drawable/txt_back"
-                            android:drawableStart="@drawable/person"
+                            android:drawableStart="@drawable/email_icon"
                             android:drawablePadding="@dimen/_9sdp"
                             android:ems="10"
                             android:gravity="start"
-                            android:hint="Username"
-                            android:inputType="text"
+                            android:hint="Email address"
+                            android:inputType="textEmailAddress"
                             android:padding="@dimen/_7sdp"
                             android:textColor="@color/black"
                             android:textColorHint="#80000000" />
 
-                        <EditText
-                            android:id="@+id/password"
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/etLoginPasswordLayout"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_20sdp"
-                            android:background="@drawable/txt_back"
-                            android:ems="10"
-                            android:inputType="text"
-                            android:padding="@dimen/_7sdp"
-                            android:hint="Password"
-                            android:gravity="start"
-                            android:drawableStart="@drawable/password"
-                            android:drawablePadding="@dimen/_7sdp"
-                            android:password="true"
-                            android:textColor="@color/black"
-                            android:textColorHint="#80000000"/>
+                            app:passwordToggleEnabled="true"
+                            >
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/password"
+                                android:layout_width="match_parent"
+                                android:drawableStart="@drawable/password"
+                                android:paddingStart="@dimen/_5sdp"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black"
+                                android:textColorHint="#80000000"
+                                android:background="@drawable/txt_back"
+                                android:ems="10"
+                                android:padding="@dimen/_7sdp"
+                                android:hint="   password"
+                                android:inputType="textPassword" />
+
+
+                        </com.google.android.material.textfield.TextInputLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -126,7 +142,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@drawable/shape2_bg"
-                            android:text="LOGIN"
+                            android:text="Sign In"
                             android:textSize="@dimen/_17sdp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="@dimen/_20sdp"/>
@@ -146,12 +162,6 @@
                             android:textStyle="bold"/>
 
                          </LinearLayout>
-
-
-
-
-
-
         </LinearLayout>
 
 

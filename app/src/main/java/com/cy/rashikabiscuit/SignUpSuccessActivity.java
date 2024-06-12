@@ -13,18 +13,15 @@ public class SignUpSuccessActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up_success);
 
-        // Find the edit profile button
-        AppCompatButton backToHome = findViewById(R.id.signup_success_back_btn);
+        AppCompatButton backToLogBtn = findViewById(R.id.back_to_login_btn);
+                backToLogBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(new Intent(SignUpSuccessActivity.this, LoginActivity.class));
+                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+                    }
+                });
 
-        // Set OnClickListener on the edit profile button
-        backToHome.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Start EditProfileActivity
-                startActivity(new Intent(SignUpSuccessActivity.this, LoginActivity.class));
-                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-            }
-        });
     }
     @Override
     public void finish() {

@@ -130,6 +130,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_25sdp"
                 android:textColor="@color/black"
+                android:layout_marginStart="@dimen/_12sdp"
                 android:textSize="@dimen/_18sdp"
                 android:text="Payment Method" />
         </LinearLayout>

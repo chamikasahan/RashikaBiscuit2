@@ -16,7 +16,7 @@
         android:layout_marginStart="@dimen/_18sdp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/_55sdp"
-        android:text="Email Verification"
+        android:text="Forgot Password ?"
         android:textSize="@dimen/_25sdp"
         android:textColor="#000000"
         android:textStyle="bold" />
@@ -52,22 +52,17 @@
 
                 android:layout_marginTop="@dimen/_15sdp"
                 android:gravity="start"
-                android:text="We will send you 6-Digit Verification code to your Email Address"
+                android:text="Enter the email address associated with your account to receive a password reset link."
                 android:textColor="@color/white"
                 android:textSize="@dimen/_16sdp"
                 android:textStyle="bold" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:paddingTop="@dimen/_20sdp"
-                android:paddingBottom="@dimen/_20sdp">
+
 
                 <EditText
                     android:id="@+id/email"
-                    android:layout_width="@dimen/_155sdp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_35sdp"
                     android:layout_marginTop="@dimen/_20sdp"
                     android:background="@drawable/txt_back"
                     android:ems="10"
@@ -80,62 +75,40 @@
                     android:textColor="@color/black"
                     android:textColorHint="#80000000"/>
 
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/otp_button"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_40sdp"
-                    android:background="@drawable/shape2_bg"
-                    android:layout_marginStart="@dimen/_2sdp"
-                    android:padding="@dimen/_4sdp"
-                    android:text="Send Code"
-                    android:textSize="@dimen/_11sdp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="@dimen/_15sdp"/>
-
-            </LinearLayout>
-
-            <EditText
-                android:id="@+id/get_otp"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/reset_pwd_button"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_20sdp"
-                android:background="@drawable/txt_back"
-                android:ems="10"
-                android:inputType="number"
-                android:padding="@dimen/_7sdp"
-                android:hint="6-Digit Email verification code"
-                android:drawablePadding="@dimen/_9sdp"
-                android:gravity="center"
-                android:autofillHints="Number"
-                android:textColor="@color/black"
-                android:textColorHint="#80000000"/>
-
-
-            <TextView
-                android:id="@+id/resend_otp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/forget_pwd_text3"
-                android:gravity="start"
-
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="@dimen/_15sdp"
-                android:text="Resend Email verification Code"
+                android:layout_height="@dimen/_35sdp"
+                android:background="@drawable/shape2_bg"
+                android:layout_marginStart="@dimen/_2sdp"
+                android:padding="@dimen/_2sdp"
+                android:drawableStart="@drawable/baseline_lock_reset_24"
+                android:text="Reset Password"
+                android:paddingStart="@dimen/_30sdp"
+                android:paddingEnd="@dimen/_40sdp"
+                android:textStyle="bold"
                 android:textSize="@dimen/_13sdp"
-                android:textColor="@color/white"
-                android:textStyle="bold" />
-
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_19sdp"/>
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/email_confirm_btn"
+                android:id="@+id/back_button"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_35sdp"
                 android:background="@drawable/shape2_bg"
-                android:text="Confirm"
-
+                android:layout_marginStart="@dimen/_2sdp"
+                android:textAlignment="center"
+                android:paddingStart="@dimen/_70sdp"
+                android:paddingEnd="@dimen/_70sdp"
+                android:drawableStart="@drawable/baseline_arrow_back_24"
+                android:textStyle="bold"
+                android:text="Back"
                 android:textSize="@dimen/_17sdp"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="@dimen/_20sdp"/>
+                android:layout_marginTop="@dimen/_19sdp"/>
+
+
+
 
         </LinearLayout>
 

@@ -32,7 +32,7 @@
             android:textStyle="bold"
             android:textColor="@color/green"
             android:textSize="@dimen/_25sdp"
-            android:text="Payment Successfull" />
+            android:text="Payment Successfull !" />
 
 
         <androidx.appcompat.widget.AppCompatButton

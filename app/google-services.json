@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "763255051136",
+    "project_id": "rashika-biscuit",
+    "storage_bucket": "rashika-biscuit.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:763255051136:android:ac8b0767b36b0f4cdb2765",
+        "android_client_info": {
+          "package_name": "com.cy.rashikabiscuit"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDIYfmaxHsqCp2nMRoSI85W2a222MfHkpM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

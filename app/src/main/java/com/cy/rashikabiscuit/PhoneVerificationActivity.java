@@ -7,98 +7,157 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+import com.google.firebase.FirebaseException;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.PhoneAuthCredential;
+import com.google.firebase.auth.PhoneAuthOptions;
+import com.google.firebase.auth.PhoneAuthProvider;
+
+import java.util.concurrent.TimeUnit;
 
 public class PhoneVerificationActivity extends AppCompatActivity {
 
     private EditText phoneEditText, otpEditText;
-    private Button confirmButton;
+    private Button sendOtpButton, confirmOtpButton;
+    private TextView resendOtpTextView;
 
-    // Constants for minimum phone number length and OTP length
-    private static final int MIN_PHONE_NUMBER_LENGTH = 10;
-    private static final int OTP_LENGTH = 6;
+    private FirebaseAuth mAuth;
+    private String verificationId;
+    private PhoneAuthProvider.ForceResendingToken resendToken;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_phone_verification);
 
-        // Initialize UI elements
         phoneEditText = findViewById(R.id.phone);
         otpEditText = findViewById(R.id.get_otp);
-        confirmButton = findViewById(R.id.phone_confirm_btn);
+        sendOtpButton = findViewById(R.id.otp_button);
+        confirmOtpButton = findViewById(R.id.phone_confirm_btn);
+        resendOtpTextView = findViewById(R.id.resend_otp);
 
-        // Set OnClickListener on the Confirm Button
-        confirmButton.setOnClickListener(new View.OnClickListener() {
+        mAuth = FirebaseAuth.getInstance();
+
+        sendOtpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Get the email and OTP entered by the user
-                String phone = phoneEditText.getText().toString().trim();
-                String otp = otpEditText.getText().toString().trim();
-
-                // Validate phone number format and OTP input
-                if (isValidPhoneNumber(phone) && isValidOTP(otp)) {
-                    // If validation is successful, start the ResetPwdActivity
-                    startActivity(new Intent(PhoneVerificationActivity.this, ResetPwdActivity.class));
-                } else {
-                    // Show error message if validation fails
-                    Toast.makeText(PhoneVerificationActivity.this, "Please enter valid phone number and OTP", Toast.LENGTH_SHORT).show();
+                String phoneNumber = phoneEditText.getText().toString().trim();
+                if (phoneNumber.isEmpty() || phoneNumber.length() < 10) {
+                    phoneEditText.setError("Valid phone number is required");
+                    phoneEditText.requestFocus();
+                    return;
                 }
+                sendVerificationCode(phoneNumber);
             }
         });
 
-
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-
-// Set listener for item selection
-        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+        confirmOtpButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                int menuid = menuItem.getItemId();
-
-                if (menuid == R.id.navigation_home) {
-                    startActivity(new Intent(PhoneVerificationActivity.this, MainActivity.class));
-                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-                    return true;
-                } else if (menuid == R.id.navigation_payments) {
-                    startActivity(new Intent(PhoneVerificationActivity.this, OrderActivity.class));
-                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-                    return true;
-                } else if (menuid == R.id.navigation_profile) {
-                    startActivity(new Intent(PhoneVerificationActivity.this, ProfileActivity.class));
-                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-                    return true;
+            public void onClick(View v) {
+                String code = otpEditText.getText().toString().trim();
+                if (code.isEmpty() || code.length() < 6) {
+                    otpEditText.setError("Enter valid code");
+                    otpEditText.requestFocus();
+                    return;
                 }
-                return false;
+                verifyCode(code);
+            }
+        });
+
+        resendOtpTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String phoneNumber = phoneEditText.getText().toString().trim();
+                if (phoneNumber.isEmpty() || phoneNumber.length() < 10) {
+                    phoneEditText.setError("Valid phone number is required");
+                    phoneEditText.requestFocus();
+                    return;
+                }
+                resendVerificationCode(phoneNumber, resendToken);
             }
         });
     }
-    @Override
-    public void finish() {
-        super.finish();
-        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+
+    private void sendVerificationCode(String phoneNumber) {
+        PhoneAuthOptions options =
+                PhoneAuthOptions.newBuilder(mAuth)
+                        .setPhoneNumber(phoneNumber)       // Phone number to verify
+                        .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
+                        .setActivity(this)                 // Activity (for callback binding)
+                        .setCallbacks(mCallbacks)          // OnVerificationStateChangedCallbacks
+                        .build();
+        PhoneAuthProvider.verifyPhoneNumber(options);
     }
 
-    // Method to validate phone number format
-    private boolean isValidPhoneNumber(String phoneNumber) {
-        // Implement phone number validation logic
-        // You can use a regex pattern or other validation methods
-        // For simplicity, let's check if it's not empty and has the required length
-        return !TextUtils.isEmpty(phoneNumber) && phoneNumber.length() >= MIN_PHONE_NUMBER_LENGTH;
+    private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+
+        @Override
+        public void onVerificationCompleted(PhoneAuthCredential credential) {
+            // Automatically verify the code
+            String code = credential.getSmsCode();
+            if (code != null) {
+                otpEditText.setText(code);
+                verifyCode(code);
+            }
+        }
+
+        @Override
+        public void onVerificationFailed(FirebaseException e) {
+            Toast.makeText(PhoneVerificationActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+        }
+
+        @Override
+        public void onCodeSent(String s, PhoneAuthProvider.ForceResendingToken token) {
+            super.onCodeSent(s, token);
+            verificationId = s;
+            resendToken = token;
+        }
+    };
+
+    private void verifyCode(String code) {
+        PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationId, code);
+        signInWithCredential(credential);
     }
 
-    // Method to validate OTP format
-    private boolean isValidOTP(String otp) {
-        // Implement OTP validation logic
-        // You can check if it's not empty and has the required length
-        // For example, if the OTP should be 6 digits:
-        return otp.length() == OTP_LENGTH;
+    private void signInWithCredential(PhoneAuthCredential credential) {
+        mAuth.signInWithCredential(credential)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Verification successful, navigate to the desired activity
+                            Intent intent = new Intent(PhoneVerificationActivity.this, ResetPwdActivity.class);
+                            startActivity(intent);
+                            finish();
+                        } else {
+                            // Verification failed
+                            Toast.makeText(PhoneVerificationActivity.this, "Verification failed", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
+    }
+
+    private void resendVerificationCode(String phoneNumber, PhoneAuthProvider.ForceResendingToken token) {
+        PhoneAuthOptions options =
+                PhoneAuthOptions.newBuilder(mAuth)
+                        .setPhoneNumber(phoneNumber)       // Phone number to verify
+                        .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
+                        .setActivity(this)                 // Activity (for callback binding)
+                        .setCallbacks(mCallbacks)          // OnVerificationStateChangedCallbacks
+                        .setForceResendingToken(token)     // ForceResendingToken from callbacks
+                        .build();
+        PhoneAuthProvider.verifyPhoneNumber(options);
     }
 }
