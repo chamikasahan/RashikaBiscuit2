@@ -186,34 +186,10 @@ public class SignUpActivity extends AppCompatActivity {
                 });
     }
 
-
-
-    // Method to show success dialog
-    private void showSuccessDialog() {
-        View alertCustomDialog = LayoutInflater.from(SignUpActivity.this).inflate(R.layout.activity_sign_up_success, null);
-        AlertDialog.Builder alertDialog = new AlertDialog.Builder(SignUpActivity.this);
-
-        alertDialog.setView(alertCustomDialog);
-        cancelButton = alertCustomDialog.findViewById(R.id.back_to_home_btn);
-
-        final AlertDialog dialog = alertDialog.create();
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        dialog.show();
-
-        cancelButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-                startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
-                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-            }
-        });
-    }
-
     @Override
     public void finish() {
         super.finish();
-        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+
     }
 }
 
