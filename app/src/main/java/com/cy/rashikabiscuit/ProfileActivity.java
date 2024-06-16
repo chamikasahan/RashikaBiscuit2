@@ -24,7 +24,6 @@ import com.google.firebase.storage.FirebaseStorage;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ProfileActivity extends AppCompatActivity {
-
     private CircleImageView profileImageView;
     private TextView nameTextView;
     private TextView phoneTextView;
@@ -56,17 +55,18 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void loadUserProfile() {
-
         // Show ProgressDialog
         ProgressDialog progressDialog = new ProgressDialog(ProfileActivity.this);
         progressDialog.setMessage("Loading Profile...");
         progressDialog.setCancelable(false);
         progressDialog.show();
 
-
         FirebaseUser user = mAuth.getCurrentUser();
         if (user != null) {
             String userId = user.getUid();
+            String email = user.getEmail();
+            emailTextView.setText(email); // Directly set the email from Firebase Auth
+
             db.collection("users").document(userId).get()
                     .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                         @Override
@@ -74,21 +74,16 @@ public class ProfileActivity extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 DocumentSnapshot document = task.getResult();
                                 if (document.exists()) {
-                                    String email = document.getString("email");
                                     String name = document.getString("name");
                                     String phone = document.getString("phone");
                                     String shopName = document.getString("shopName");
                                     String shopAddress = document.getString("address");
                                     String profileImageUrl = document.getString("profileImageUrl");
 
-
-                                    emailTextView.setText(email);
                                     nameTextView.setText(name);
                                     phoneTextView.setText(phone);
                                     shopNameTextView.setText(shopName);
                                     shopAddressTextView.setText(shopAddress);
-
-
 
                                     // Load profile image using Glide
                                     if (profileImageUrl != null && !profileImageUrl.isEmpty()) {
@@ -114,9 +109,7 @@ public class ProfileActivity extends AppCompatActivity {
                         }
                     });
 
-            // bottom navigation menu code starts
             BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-            // Set listener for item selection
             bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -127,7 +120,6 @@ public class ProfileActivity extends AppCompatActivity {
                         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                         return true;
                     } else if (menuid == R.id.navigation_payments) {
-                        // Start OrderActivity
                         startActivity(new Intent(ProfileActivity.this, OrderActivity.class));
                         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                         return true;
@@ -138,6 +130,8 @@ public class ProfileActivity extends AppCompatActivity {
                 }
             });
 
+            bottomNavigationView.setSelectedItemId(R.id.navigation_profile); // Highlight the profile menu item
+
             editProfileButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -145,6 +139,17 @@ public class ProfileActivity extends AppCompatActivity {
                     overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                 }
             });
+
+            editProfileButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(ProfileActivity.this, EditProfileActivity.class));
+                    overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+                }
+            });
+        } else {
+            progressDialog.dismiss();
+            Toast.makeText(ProfileActivity.this, "No user is currently signed in.", Toast.LENGTH_SHORT).show();
         }
     }
 }
