@@ -146,6 +146,7 @@ public class SignUpActivity extends AppCompatActivity {
                                 userDetails.put("phone", phone);
                                 userDetails.put("shopName", shopName);
                                 userDetails.put("address", address);
+                                userDetails.put("email" , email );
 
                                 db.collection("users").document(userId)
                                         .set(userDetails)
@@ -169,17 +170,26 @@ public class SignUpActivity extends AppCompatActivity {
                                                                 finish();
                                                                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                                                             } else {
+
+                                                                // Dismiss the ProgressDialog
+                                                                progressDialog.dismiss();
                                                                 Toast.makeText(SignUpActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                                             }
                                                         }
                                                     });
                                                 } else {
+
+                                                    // Dismiss the ProgressDialog
+                                                    progressDialog.dismiss();
                                                     Toast.makeText(SignUpActivity.this, "Failed to store additional details", Toast.LENGTH_SHORT).show();
                                                 }
                                             }
                                         });
                             }
                         } else {
+
+                            // Dismiss the ProgressDialog
+                            progressDialog.dismiss();
                             Toast.makeText(SignUpActivity.this, "Authentication failed, try again", Toast.LENGTH_SHORT).show();
                         }
                     }

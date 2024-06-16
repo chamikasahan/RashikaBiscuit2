@@ -73,7 +73,7 @@ public class LoginActivity extends AppCompatActivity {
         testButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this, EmailVerifiedFailedActivity.class));
+                startActivity(new Intent(LoginActivity.this, ChangeEmailToNewActivity.class));
             }
         });
 
@@ -112,7 +112,7 @@ public class LoginActivity extends AppCompatActivity {
 
         // Show ProgressDialog
         ProgressDialog progressDialog = new ProgressDialog(LoginActivity.this);
-        progressDialog.setMessage("Logging in...");
+        progressDialog.setMessage("Signing in...");
         progressDialog.setCancelable(false);
         progressDialog.show();
 
@@ -124,10 +124,13 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
-                        // Dismiss the ProgressDialog
-                        progressDialog.dismiss();
+
 
                         if (task.isSuccessful()) {
+
+                            // Dismiss the ProgressDialog
+                            progressDialog.dismiss();
+
                             // Save login state if "Remember Me" is checked
                             if (Objects.requireNonNull(fAuth.getCurrentUser()).isEmailVerified() && rememberMeCheckBox.isChecked()){
                                 SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -149,6 +152,8 @@ public class LoginActivity extends AppCompatActivity {
                                startActivity(new Intent(LoginActivity.this, EmailVerifiedFailedActivity.class));
                             }
                         } else {
+                            // Dismiss the ProgressDialog
+                            progressDialog.dismiss();
                             // Sign in failed, display error message
                             String errorMessage = task.getException() != null ? task.getException().getMessage() : "Authentication failed.";
                             Toast.makeText(LoginActivity.this, errorMessage, Toast.LENGTH_SHORT).show();
@@ -160,7 +165,7 @@ public class LoginActivity extends AppCompatActivity {
     private void navigateToMainActivity() {
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(intent);
-        overridePendingTransition(R.anim.slide_out_right, R.anim.slide_in_left);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
         finish(); // Optional: Close the LoginActivity to prevent going back
     }
 

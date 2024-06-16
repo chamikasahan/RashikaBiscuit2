@@ -27,14 +27,13 @@
             android:textSize="@dimen/_15sdp"
             android:text="Edit Profile Information" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="match_parent"
-            android:layout_height="121dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="@dimen/_28sdp"
-            android:layout_marginBottom="@dimen/_1sdp"
-            android:src="@drawable/profile" />
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/user_pro_image"
+            android:layout_width="@dimen/_225sdp"
+            android:layout_height="@dimen/_120sdp"
+           android:layout_gravity="center"
+            android:src="@drawable/profile"
+            android:layout_marginBottom="@dimen/_11sdp"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/add_photo_btn"
@@ -50,9 +49,6 @@
             android:textSize="@dimen/_9sdp"
             android:layout_centerHorizontal="true"
             />
-
-
-
 
         <!--*******************************************************-->
 
@@ -100,23 +96,6 @@
                     android:textColorHint="#80000000"/>
 
                 <EditText
-                    android:id="@+id/edit_profile_email"
-                    android:layout_width="@dimen/_250sdp"
-                    android:layout_gravity="center"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_20sdp"
-                    android:background="@drawable/txt_back"
-                    android:ems="10"
-                    android:inputType="text"
-                    android:padding="@dimen/_7sdp"
-                    android:hint="example@gmail.com"
-                    android:drawablePadding="@dimen/_9sdp"
-                    android:drawableStart="@drawable/email_icon"
-                    android:autofillHints="emailAddress"
-                    android:textColor="@color/black"
-                    android:textColorHint="#80000000"/>
-
-                <EditText
                     android:id="@+id/edit_profile_shop_name"
                     android:layout_width="@dimen/_250sdp"
                     android:layout_gravity="center"
@@ -152,54 +131,67 @@
                     android:textColor="@color/black"
                     android:textColorHint="#80000000"/>
 
-
-
-
-                <EditText
-                    android:id="@+id/edit_profile_password"
-                    android:layout_width="@dimen/_250sdp"
-                    android:layout_gravity="center"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_20sdp"
-                    android:background="@drawable/txt_back"
-                    android:ems="10"
-                    android:inputType="text"
-                    android:padding="@dimen/_7sdp"
-                    android:hint="Password"
-                    android:drawablePadding="@dimen/_4sdp"
-                    android:drawableStart="@drawable/password"
-                    android:password="true"
-                    android:textColor="@color/black"
-                    android:textColorHint="#80000000"/>
-
-                <EditText
-                    android:id="@+id/edit_profie_confirm_pwd"
-                    android:layout_width="@dimen/_250sdp"
-                    android:layout_gravity="center"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_20sdp"
-                    android:background="@drawable/txt_back"
-                    android:ems="10"
-                    android:inputType="text"
-                    android:padding="@dimen/_7sdp"
-                    android:hint="Confirm password"
-                    android:drawablePadding="@dimen/_4sdp"
-                    android:drawableStart="@drawable/password"
-                    android:password="true"
-                    android:textColor="@color/black"
-                    android:textColorHint="#80000000"/>
-
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/confirm_btn"
+                    android:id="@+id/save_btn"
                     android:layout_gravity="center"
                     android:layout_width="@dimen/_180sdp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/shape2_bg"
-                    android:layout_marginBottom="@dimen/_100sdp"
+                    android:layout_marginBottom="@dimen/_25sdp"
                     android:text="Confirm"
                     android:textSize="@dimen/_17sdp"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="@dimen/_20sdp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_11sdp"
+                    android:layout_marginStart="@dimen/_25sdp"
+                    android:text="Want to change your email address?"/>
+
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/change_email_btn"
+                    android:layout_gravity="start"
+                    android:layout_width="@dimen/_150sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:background="@drawable/shape2_bg"
+                    android:layout_marginBottom="@dimen/_20sdp"
+                    android:text="Change Email Address"
+                    android:padding="@dimen/_1sdp"
+                    android:layout_marginStart="@dimen/_25sdp"
+                    android:textSize="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_10sdp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_11sdp"
+                    android:layout_marginStart="@dimen/_25sdp"
+                    android:text="Want to change your password?"/>
+
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/reset_pwd_btn"
+                    android:layout_gravity="start"
+                    android:layout_width="@dimen/_150sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:background="@drawable/shape2_bg"
+                    android:layout_marginBottom="@dimen/_120sdp"
+                    android:text="Reset password"
+                    android:padding="@dimen/_1sdp"
+                    android:layout_marginStart="@dimen/_25sdp"
+                    android:textSize="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_10sdp"/>
+
+
+
+
 
             </LinearLayout>
         </ScrollView>

@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,14 +14,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RashikaBiscuit"
         tools:targetApi="31">
+
+        <activity
+            android:name=".ChangeEmailToNewActivity"
+            android:exported="false" />
         <activity
             android:name=".EmailVerifiedFailedActivity"
             android:exported="false" />
         <activity
             android:name=".EditProfileSuccessActivity"
-            android:exported="false" />
-        <activity
-            android:name=".PwdResetSuccessActivity"
             android:exported="false" />
         <activity
             android:name=".SnackActivity"
@@ -60,15 +63,7 @@
         <activity
             android:name=".EmailVerificationActivity"
             android:exported="false" />
-        <activity
-            android:name=".ResetPwdActivity"
-            android:exported="false" />
-        <activity
-            android:name=".PhoneVerificationActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ForgetPwd2Activity"
-            android:exported="false" />
+
         <activity
             android:name=".MainActivity"
             android:exported="false" />

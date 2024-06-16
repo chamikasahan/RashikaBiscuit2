@@ -25,6 +25,7 @@ public class EmailVerifiedFailedActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(EmailVerifiedFailedActivity.this, LoginActivity.class));
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
 
