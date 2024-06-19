@@ -2,93 +2,67 @@ package com.cy.rashikabiscuit;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
-
-import com.cy.rashikabiscuit.OrderActivity;
-import com.cy.rashikabiscuit.ProfileActivity;
-import com.cy.rashikabiscuit.R;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+import java.util.ArrayList;
+import java.util.EventListener;
+import java.util.List;
+import java.util.Map;
+
 
 public class MainActivity extends AppCompatActivity {
 
-    private int quantity = 1; // Initial quantity
-    private TextView quantityTextView;
+    private static final String TAG = "MainActivity";
+    private FirebaseFirestore db;
+    private RecyclerView recyclerView;
+    private BiscuitAdapter biscuitAdapter;
+    private List<Biscuit> biscuitList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Find snack button
+        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        biscuitList = new ArrayList<>();
+        biscuitAdapter = new BiscuitAdapter(this, biscuitList);
+        recyclerView.setAdapter(biscuitAdapter);
 
+        db = FirebaseFirestore.getInstance();
+        loadBiscuitsFromFirestore();
+
+        // Find snack button
         AppCompatButton snackBtn = findViewById(R.id.snacks_nav);
 
         // set onclick listener for snack nav button
-        snackBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, SnackActivity.class));
-                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-            }
+        snackBtn.setOnClickListener(v -> {
+            startActivity(new Intent(MainActivity.this, SnackActivity.class));
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         });
 
         // find other product button
         AppCompatButton otherBtn = findViewById(R.id.other_nav);
 
         // set onclick listener for other product btn
-        otherBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, OtherProductActivity.class));
-                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-            }
-        });
-
-
-
-        // Find the quantity TextView
-        quantityTextView = findViewById(R.id.quantity_Text);
-
-        // Find the increment button
-        ImageView incrementButton = findViewById(R.id.plus_button);
-        // Set OnClickListener on the increment button
-        incrementButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                incrementQuantity();
-            }
-        });
-
-        // Find the decrement button
-        ImageView decrementButton = findViewById(R.id.minus_button);
-        // Set OnClickListener on the decrement button
-        decrementButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                decrementQuantity();
-            }
-        });
-
-        // Find the biscuit1_btn button
-        Button addToCartButton = findViewById(R.id.add_to_cart_btn);
-        // Set OnClickListener on the biscuit1_btn button
-        addToCartButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Start OrderActivity with quantity
-                Intent intent = new Intent(MainActivity.this, OrderActivity.class);
-                intent.putExtra("quantity", quantity);
-                startActivity(intent);
-            }
+        otherBtn.setOnClickListener(v -> {
+            startActivity(new Intent(MainActivity.this, OtherProductActivity.class));
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
@@ -118,30 +92,44 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    // Method to increment quantity
-    private void incrementQuantity() {
-        quantity++;
-        displayQuantity();
+    private void loadBiscuitsFromFirestore() {
+        CollectionReference biscuitsRef = db.collection("biscuit");
+        biscuitsRef.addSnapshotListener((value, error) -> {
+            if (error != null) {
+                Log.e(TAG, "Error getting biscuits", error);
+                return;
+            }
+
+            biscuitList.clear();
+            for (QueryDocumentSnapshot document : value) {
+                String imageUrl = document.getString("imageUrl");
+                String name = document.getString("name");
+
+                // Handle nullable Map
+                Object priceObj = document.get("price");
+                Map<String, Object> priceMap = null;
+                if (priceObj instanceof Map) {
+                    priceMap = (Map<String, Object>) priceObj;
+                }
+
+                // Initialize price values
+                int _100g = 0;
+                int _350g = 0;
+                int _500g = 0;
+
+                // Retrieve price values if the map is not null
+                if (priceMap != null) {
+                    _100g = priceMap.containsKey("100g") ? ((Long) priceMap.get("100g")).intValue() : 0;
+                    _350g = priceMap.containsKey("350g") ? ((Long) priceMap.get("350g")).intValue() : 0;
+                    _500g = priceMap.containsKey("500g") ? ((Long) priceMap.get("500g")).intValue() : 0;
+                }
+
+                Biscuit.Price price = new Biscuit.Price(_100g, _350g, _500g);
+                Biscuit biscuit = new Biscuit(imageUrl, name, price);
+                biscuitList.add(biscuit);
+            }
+            biscuitAdapter.notifyDataSetChanged();
+        });
     }
 
-    // Method to decrement quantity
-    private void decrementQuantity() {
-        if (quantity > 1) {
-            quantity--;
-            displayQuantity();
-        } else {
-            Toast.makeText(MainActivity.this, "Quantity cannot be less than 1", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    // Method to display quantity
-    private void displayQuantity() {
-        quantityTextView.setText(String.valueOf(quantity));
-    }
-
-    @Override
-    public void finish() {
-        super.finish();
-        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
-    }
 }

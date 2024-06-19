@@ -72,7 +72,6 @@ public class ChangeEmailToNewActivity extends AppCompatActivity {
         }
 
         if (user != null && user.isEmailVerified()) {
-
             // Show ProgressDialog
             ProgressDialog progressDialog = new ProgressDialog(ChangeEmailToNewActivity.this);
             progressDialog.setMessage("Changing" +

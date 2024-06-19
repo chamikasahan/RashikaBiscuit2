@@ -23,10 +23,9 @@
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:textColor="@color/black"
-
             android:textStyle="bold"
             android:textSize="@dimen/_25sdp"
-            android:text="Payments" />
+            android:text="Add to Cart" />
 
         <TextView
             android:id="@+id/added_item_txt"
@@ -40,73 +39,41 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_180sdp">
+            android:layout_height="@dimen/_240sdp">
 
             <LinearLayout
-
+                android:id="@+id/cartItemsLayout"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_220sdp"
-                android:orientation="vertical">
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
 
-                <TextView
-                    android:layout_width="@dimen/_250sdp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/field1"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="@dimen/_25sdp"
-                    android:padding="@dimen/_10sdp"
-                    android:background="@drawable/txt_back"
-                    android:text="Biscuit 01" />
+               <LinearLayout
 
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="horizontal">
 
+                   <TextView
+                       android:id="@+id/add_to_cart_item"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_marginTop="@dimen/_11sdp"
+                       android:padding="@dimen/_6sdp"
+                       android:background="@drawable/txt_back"
+                       android:layout_marginStart="@dimen/_22sdp"
+                       android:layout_marginEnd="@dimen/_11sdp"
+                       android:textSize="@dimen/_18sdp"
+                       android:text="hellow"/>
 
-                <TextView
-                    android:layout_width="@dimen/_250sdp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/field2"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="@dimen/_25sdp"
-                    android:padding="@dimen/_10sdp"
-                    android:background="@drawable/txt_back"
-                    android:text="Biscuit 02" />
-
-                <TextView
-                    android:layout_width="@dimen/_250sdp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/field3"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="@dimen/_25sdp"
-                    android:padding="@dimen/_10sdp"
-                    android:background="@drawable/txt_back"
-                    android:text="Biscuit 03" />
-
-                <TextView
-                    android:layout_width="@dimen/_250sdp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/field4"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="@dimen/_25sdp"
-                    android:padding="@dimen/_10sdp"
-                    android:background="@drawable/txt_back"
-                    android:text="Biscuit 02" />
-
-                <TextView
-                    android:layout_width="@dimen/_250sdp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/field5"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="@dimen/_25sdp"
-                    android:padding="@dimen/_10sdp"
-                    android:background="@drawable/txt_back"
-                    android:text="Biscuit 02" />
-
-
+               </LinearLayout>
             </LinearLayout>
+
         </ScrollView>
 
 
         <TextView
-            android:id="@+id/textView13"
+            android:id="@+id/total_amount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
@@ -138,41 +105,61 @@
 
     </LinearLayout>
 
-    <LinearLayout
+    <ScrollView
         android:layout_below="@+id/payment_layout1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="@dimen/_200sdp">
 
-        <RadioGroup
-            android:layout_width="@dimen/_253sdp"
-            android:layout_gravity="center"
-            android:layout_marginTop="@dimen/_15sdp"
-            android:layout_height="match_parent">
-
-            <RadioButton
-                android:id="@+id/payment_rdio_1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:background="@drawable/txt_back"
-               android:paddingEnd="@dimen/_12sdp"
-                android:drawableEnd="@drawable/credit_card_icon"
-                android:text="Credit/Debit" />
-        </RadioGroup>
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/confirm_pbtn"
-            android:layout_gravity="center"
-            android:layout_width="@dimen/_178sdp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/shape2_bg"
-            android:padding="@dimen/_6sdp"
-            android:text="Confirm Payment"
-            android:textSize="@dimen/_17sdp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/_40sdp"/>
-    </LinearLayout>
+            android:layout_marginBottom="@dimen/_22sdp"
+            android:orientation="vertical">
+
+            <RadioGroup
+                android:layout_width="@dimen/_253sdp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_height="match_parent">
+
+                <RadioButton
+                    android:id="@+id/payment_rdio_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:background="@drawable/txt_back"
+                    android:paddingEnd="@dimen/_12sdp"
+                    android:drawableEnd="@drawable/credit_card_icon"
+                    android:text="Credit/Debit" />
+
+                <RadioButton
+                    android:id="@+id/payment_rdio_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:background="@drawable/txt_back"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:paddingEnd="@dimen/_12sdp"
+                    android:drawableEnd="@drawable/credit_card_icon"
+                    android:text="Cash On Delivery" />
+            </RadioGroup>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/confirm_pbtn"
+                android:layout_gravity="center"
+                android:layout_width="@dimen/_178sdp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape2_bg"
+                android:padding="@dimen/_6sdp"
+                android:text="Confirm Payment"
+                android:textSize="@dimen/_17sdp"
+                android:layout_marginBottom="@dimen/_40sdp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_40sdp"/>
+        </LinearLayout>
+    </ScrollView>
+
+
 
     <!--    nav bar -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
