@@ -44,7 +44,7 @@ public class OtherAdapter extends RecyclerView.Adapter<OtherAdapter.OtherViewHol
         // Load image using Glide into otherProductImage
         Glide.with(mContext)
                 .load(otherProduct.getImageUrl())
-                .apply(RequestOptions.placeholderOf(R.drawable.profile)) // Placeholder image
+                .apply(RequestOptions.placeholderOf(R.drawable.loading_icon)) // Placeholder image
                 .into(holder.otherProductImage); // Use holder.otherProductImage to reference the ImageView
 
         // Set up RadioGroup with listener

@@ -21,11 +21,6 @@
         android:padding="@dimen/_8sdp"
         android:src="@drawable/logo" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/test_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="test button"></androidx.appcompat.widget.AppCompatButton>
 
     <TextView
         android:id="@+id/login"

@@ -9,32 +9,10 @@
     tools:context=".SnackActivity">
 
 
-    <LinearLayout
-        android:id="@+id/search_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:orientation="vertical">
-
-        <EditText
-            android:layout_gravity="end"
-            android:layout_width="@dimen/_220sdp"
-            android:layout_marginEnd="@dimen/_8sdp"
-            android:layout_marginTop="@dimen/_12sdp"
-            android:gravity="center"
-            android:drawableEnd="@drawable/search_icon"
-            android:background="@drawable/search_bar_bg"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/_4sdp"
-            android:hint="search Product here......"
-            />
-
-    </LinearLayout>
 
 <!--linear layout for nav buttons-->
     <LinearLayout
         android:id="@+id/horizontal_btn_bar"
-        android:layout_below="@+id/search_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_5sdp"

@@ -69,16 +69,6 @@ public class LoginActivity extends AppCompatActivity {
         });
 
 
-        AppCompatButton testButton = findViewById(R.id.test_button);
-        testButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this, ChangeEmailToNewActivity.class));
-            }
-        });
-
-
-
         // Find the TextView for "Forgot Password"
         TextView forgotPasswordTextView = findViewById(R.id.forgot_pwd);
 

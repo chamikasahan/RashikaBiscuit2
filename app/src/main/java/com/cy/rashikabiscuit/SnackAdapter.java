@@ -46,7 +46,7 @@ public class SnackAdapter extends RecyclerView.Adapter<SnackAdapter.SnackViewHol
         // Load image using Glide into snackImage
         Glide.with(mContext)
                 .load(snack.getImageUrl())
-                .apply(RequestOptions.placeholderOf(R.drawable.profile)) // Placeholder image
+                .apply(RequestOptions.placeholderOf(R.drawable.loading_icon)) // Placeholder image
                 .into(holder.snackImage); // Use holder.snackImage to reference the ImageView
 
         // Set up RadioGroup with listener

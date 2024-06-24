@@ -47,7 +47,7 @@ public class BiscuitAdapter extends RecyclerView.Adapter<BiscuitAdapter.BiscuitV
         // Load image using Glide into biscuitImage
         Glide.with(mContext)
                 .load(biscuit.getImageUrl())
-                .apply(RequestOptions.placeholderOf(R.drawable.profile)) // Placeholder image
+                .apply(RequestOptions.placeholderOf(R.drawable.loading_icon)) // Placeholder image
                 .into(holder.biscuitImage); // Use holder.biscuitImage to reference the ImageView
 
         // Set up RadioGroup with listener

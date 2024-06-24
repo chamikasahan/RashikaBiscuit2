@@ -77,8 +77,13 @@ public class EditProfileActivity extends AppCompatActivity {
         });
 
         saveButton.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
+                ProgressDialog progressDialog = new ProgressDialog(EditProfileActivity.this);
+                progressDialog.setMessage("Updating Profile...");
+                progressDialog.setCancelable(false);
+                progressDialog.show();
                 saveProfile();
             }
         });

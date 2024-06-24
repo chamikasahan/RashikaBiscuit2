@@ -16,16 +16,36 @@
 
         android:orientation="vertical">
 
-
-        <TextView
-            android:id="@+id/payment_txt"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:textSize="@dimen/_25sdp"
-            android:text="Add to Cart" />
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/payment_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:layout_marginStart="@dimen/_80sdp"
+                android:textStyle="bold"
+                android:textSize="@dimen/_25sdp"
+                android:text="Add to Cart" />
+
+            <ImageView
+                android:id="@+id/history_btn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_31sdp"
+                android:layout_marginStart="@dimen/_30sdp"
+                android:layout_gravity="end"
+                android:src="@drawable/baseline_history_24">
+
+            </ImageView>
+
+        </LinearLayout>
+
+
+
 
         <TextView
             android:id="@+id/added_item_txt"
@@ -70,6 +90,14 @@
             </LinearLayout>
 
         </ScrollView>
+
+        <ImageView
+            android:id="@+id/delete_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_delete_24"
+            android:layout_marginStart="@dimen/_15sdp"
+            />
 
 
         <TextView
@@ -117,13 +145,14 @@
             android:orientation="vertical">
 
             <RadioGroup
+                android:id="@+id/pyment_grp"
                 android:layout_width="@dimen/_253sdp"
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/_15sdp"
                 android:layout_height="match_parent">
 
                 <RadioButton
-                    android:id="@+id/payment_rdio_1"
+                    android:id="@+id/rdio_btn_crd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -133,7 +162,7 @@
                     android:text="Credit/Debit" />
 
                 <RadioButton
-                    android:id="@+id/payment_rdio_2"
+                    android:id="@+id/rdio_btn_cod"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -145,7 +174,7 @@
             </RadioGroup>
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/confirm_pbtn"
+                android:id="@+id/confirm_btn"
                 android:layout_gravity="center"
                 android:layout_width="@dimen/_178sdp"
                 android:layout_height="wrap_content"
